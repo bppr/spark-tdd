@@ -31,13 +31,10 @@ def test_title_has_exclamation():
     assert(touched_data[0].name) == 'The Shawshank Redemption!'
 
 def test_any_title_has_exclamation():
-    # arrange
     df = load_all_csv('movies.csv')
 
-    # act
     result = map_movies(df)
 
-    # assert
     touched_data = result.take(3)
     assert(touched_data[2].name) == 'The Dark Knight!'
 
