@@ -1,13 +1,9 @@
-from pyspark.sql.functions import udf
-from pyspark.sql.types import ArrayType, StringType
-
-@udf()
-def map_name(m): return m + '!'
-
-@udf(returnType=ArrayType(StringType()))
-def map_genre(m): return m.split(',')
+from pyspark.sql.functions import lit, concat_ws, split
 
 def map_movies(df):
+    map_name = concat_ws('', df.name, lit('!'))
+    map_genre = split(df.genre, ',')
+
     return df.select('name', 'rating', 'genre') \
-        .withColumn('name', map_name(df.name)) \
-        .withColumn('genre', map_genre(df.genre))
+        .withColumn('name', map_name) \
+        .withColumn('genre', map_genre)
