@@ -15,6 +15,17 @@ but you may use any aliases or none.
  - `source .venv/bin/activate` needed each time you cd into the project dir :nauseated_face:
  - `pip install -r requirements-test.txt`
 
-### Test Locally
+ ### Test Locally
 
  - `pytest` :tada:
+
+### Setup to Run Locally (Windows, Linux and other)
+
+ - use a package manager or some installer to install the JVM on your machine
+ - if Linux, the above commands should work; repace `.zprofile` with your shell's RC.
+ - if Windows, you may need to tranlsate to Power Shell, the Command Prompt, or use WSL. Many choices are open to you.
+
+#### Dependencies:
+ - Python3
+ - Java (for running spark)
+ - and requirements in [Test](requirements-test.txt) and [Source](requirements.txt)
