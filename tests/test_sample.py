@@ -72,6 +72,5 @@ def test_rating_does_not_change_from_string():
 
     result = map_movies(df)
 
-    result.show()
     touched_data = result.take(2)
     assert(touched_data[1].rating) == "9.2"
