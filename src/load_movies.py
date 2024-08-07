@@ -4,6 +4,6 @@ def map_movies(df):
     map_name = concat_ws('', df.name, lit('!'))
     map_genre = split(df.genre, ',')
 
-    return df.select('name', 'rating', 'genre') \
+    return df.select('name', 'rating', 'genre', 'box_office') \
         .withColumn('name', map_name) \
         .withColumn('genre', map_genre)
