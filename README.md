@@ -15,7 +15,7 @@ but you may use any aliases or none.
  - `source .venv/bin/activate` needed each time you cd into the project dir :nauseated_face:
  - `pip install -r requirements-test.txt`
 
- ### Test Locally
+### Test Locally
 
  - `pytest` :tada:
 
