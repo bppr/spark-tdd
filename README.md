@@ -13,6 +13,7 @@ but you may use any aliases or none.
  - `python -m venv .venv` which should genreate 
    - a `pyvenv.cfg` file and other env deps into a folder called `.venv`
  - `source .venv/bin/activate` needed each time you cd into the project dir :nauseated_face:
+   - note: if you have multiple projects, `deactivate` before leaving the dir.
  - `pip install -r requirements-test.txt`
 
 ### Test Locally
