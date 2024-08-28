@@ -1,6 +1,6 @@
 name: Run Unit Tests
 
-run-name: Testing "${{ github.event.head_commit.message }}" by @${{ github.actor }} on branch ${{ github.ref_name }}
+run-name: Test [ ${{ github.event.head_commit.message }} ]
 
 on: [push]
 
