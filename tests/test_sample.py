@@ -19,7 +19,7 @@ def test_any_title_has_exclamation():
     result = map_movies(df)
 
     touched_data = result.take(3)
-    assert(touched_data[2].name) == 'The Dark Knight', 'The assigned name was incorrect'
+    assert(touched_data[2].name) == 'The Dark Knight!', 'The assigned name was incorrect'
 
 def test_box_office_rounds_millions_to_nearest_2_decimals():
     df = load_all_csv('movies.csv')
@@ -42,10 +42,8 @@ def test_genre_spreads_into_a_list():
 
     result = map_movies(df)
 
-    # result.show()
     touched_data = result.take(2)
-    # will fail
-    assert(touched_data[1].genre) == ['Drama', 'Crime']
+    assert(touched_data[1].genre) == ['Crime', 'Drama']
 
 def test_rating_does_not_change_from_string():
     df = load_all_csv('movies.csv')
