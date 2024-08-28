@@ -32,7 +32,6 @@ jobs:
 
       - name: Install Unix ODBC for pyodbc to use
         run: |
-          sudo apt-get update
           sudo apt-get install unixodbc
 
       - name: Install Python Packages
