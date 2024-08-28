@@ -1,0 +1,35 @@
+name: Run Unit Tests
+
+run-name: Testing "${{ github.event.head_commit.message }}" by @${{ github.actor }} on branch ${{ github.ref_name }}
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        python-version: ["3.9"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install JVM for Spark to use
+        uses: actions/setup-java@v4
+        with:
+          distribution: "zulu"
+          java-version: "22.0.2"
+
+      - name: Install Python Packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-test.txt
+
+      - name: Test with pytest
+        run: |
+          pytest
