@@ -30,6 +30,12 @@ jobs:
         with:
           postgresql-version: 14
 
+      - name: Install Unix ODBC for pyodbc to use
+        run: |
+          curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
+          sudo apt-get update
+          sudo apt-get install unixodbc
+
       - name: Install Python Packages
         run: |
           python -m pip install --upgrade pip
